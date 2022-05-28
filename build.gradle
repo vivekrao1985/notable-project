@@ -11,13 +11,23 @@ repositories {
 }
 
 dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    implementation 'joda-time:joda-time:2.10.14'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
     annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor "io.micronaut:micronaut-inject-java"
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
+    annotationProcessor("io.micronaut.data:micronaut-data-document-processor")
+    implementation("io.micronaut.data:micronaut-data-mongodb")
+    runtimeOnly("org.mongodb:mongodb-driver-sync")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:mongodb")
+    testImplementation("org.testcontainers:testcontainers")
+    testAnnotationProcessor "io.micronaut:micronaut-inject-java"
 }
 
 

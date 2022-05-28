@@ -1,0 +1,20 @@
+version: '3'
+services:
+  notable:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+    networks:
+      - notable-network
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - notable-network
+
+networks:
+  notable-network:
+    driver: bridge

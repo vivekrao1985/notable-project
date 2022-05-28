@@ -8,5 +8,5 @@ import java.util.Date;
 public interface AppointmentService {
     Iterable<Appointment> list(@NonNull String doctorId, @NonNull Date date);
     void remove(@NonNull String appointmentId);
-    Appointment save(Appointment appointment);
+    Appointment save(Appointment appointment) throws Exception;
 }

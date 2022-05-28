@@ -35,4 +35,4 @@ curl -X GET 'http://localhost:8080/appointment/doctor/<doctor-id>/date/2022-06-2
 ```
 
 ## Missing features
-I couldn't complete the 15 minute interval and 3 appointment constraint features. Out of time :(
+I couldn't complete the 3 appointment constraint features. Out of time :(

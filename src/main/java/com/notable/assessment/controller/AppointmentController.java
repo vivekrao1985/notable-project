@@ -35,7 +35,7 @@ public class AppointmentController {
 
     @Post
     @Status(HttpStatus.CREATED)
-    Appointment save(@NonNull @NotNull @Valid Appointment appointment) {
+    Appointment save(@NonNull @NotNull @Valid Appointment appointment) throws Exception {
         return this.appointmentService.save(appointment);
     }
 }

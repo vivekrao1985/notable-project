@@ -29,7 +29,10 @@ public class DefaultAppointmentService implements AppointmentService {
     }
 
     @Override
-    public Appointment save(Appointment appointment) {
+    public Appointment save(Appointment appointment) throws Exception {
+        if (LocalDateTime.fromDateFields(appointment.getAppointmentDate()).getMinuteOfHour() % 15 != 0) {
+            throw new Exception("Invalid appointment time. Appointment should be in 15 minute intervals");
+        }
         return this.appointmentRepository.save(appointment);
     }
 }

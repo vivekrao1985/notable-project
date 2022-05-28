@@ -1,14 +1,38 @@
-## Micronaut 3.5.0 Documentation
+## Start services in docker
+```
+./gradlew build
+docker-compose up
+```
 
-- [User Guide](https://docs.micronaut.io/3.5.0/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.5.0/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.5.0/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+## Create a doctor
+```
+curl -d '{"firstName":"Vivek", "lastName":"Rao"}' -H "Content-Type: application/json" -X POST 'http://localhost:8080/doctor'
+```
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature http-client documentation
+## List all doctors
+```
+curl -X GET 'http://localhost:8080/doctor'
+```
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+## Create an appointment
+```
+curl -d '{"doctorId":"<doctor-id>", "patientFirstName":"John", "patientLastName":"Doe", "appointmentDate":"2022-06-23T12:30"}' -H "Content-Type: application/json" -X POST 'http://localhost:8080/appointment'
+```
 
+## Delete an appointment
+```
+curl -X DELETE 'http://localhost:8080/appointment/delete/<appointment-id>'
+```
 
+## Add a new appointment
+```
+curl -d '{"doctorId":"<doctor-id>", "patientFirstName":"John", "patientLastName":"Doe", "appointmentDate":"2022-06-25T12:30", "appointmentType":"NewPatient"}' -H "Content-Type: application/json" -X POST 'http://localhost:8080/appointment'
+```
+
+## List all appointments for a particular doctor on a particular day
+```
+curl -X GET 'http://localhost:8080/appointment/doctor/<doctor-id>/date/2022-06-25'
+```
+
+## Missing features
+I couldn't complete the 15 minute interval and 3 appointment constraint features. Out of time :(

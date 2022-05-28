@@ -14,11 +14,6 @@ curl -d '{"firstName":"Vivek", "lastName":"Rao"}' -H "Content-Type: application/
 curl -X GET 'http://localhost:8080/doctor'
 ```
 
-## Create an appointment
-```
-curl -d '{"doctorId":"<doctor-id>", "patientFirstName":"John", "patientLastName":"Doe", "appointmentDate":"2022-06-23T12:30"}' -H "Content-Type: application/json" -X POST 'http://localhost:8080/appointment'
-```
-
 ## Delete an appointment
 ```
 curl -X DELETE 'http://localhost:8080/appointment/delete/<appointment-id>'
